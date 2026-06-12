@@ -7,7 +7,6 @@ on:
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -15,3 +14,7 @@ jobs:
 
       - name: Deploy Server
         run: echo "Deploying application..."
+
+      - name: Notify on Failure
+        if: failure()
+        run: echo "Build Failed"
